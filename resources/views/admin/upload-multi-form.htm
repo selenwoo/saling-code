@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+.file-box {
+	position: relative;
+	width: 340px;
+	margin: 20px;
+}
+.txt {
+	height: 28px;
+	line-height: 28px;
+	border: 1px solid #cdcdcd;
+	width: 180px;
+}
+.btn {
+	width: 70px;
+	color: #fff;
+	background-color: #3598dc;
+	border: 0 none;
+	height: 28px;
+	line-height: 16px!important;
+	cursor: pointer;
+}
+.btn:hover {
+	background-color: #63bfff;
+	color: #fff;
+}
+.file {
+	position: absolute;
+	top: 0;
+	right: 85px;
+	height: 30px;
+	line-height: 30px;
+filter:alpha(opacity:0);
+	opacity: 0;
+	width: 254px
+}
+</style>
+</head>
+
+<body>
+<div class="col-8">
+  <div class="form-group">
+    <div class="file-box">
+      <form id="uploadForm" action="{{ url('admin/products/upload') }}" method="POST" enctype="multipart/form-data">
+        <input type="text" id="textfield" class="txt" value="{{ $product->pro_img }}" />
+        <input type="button" class="btn" value="浏览..." />
+        <input type="file" name="file" class="file" id="fileField" multiple="multiple" onchange="document.getElementById('textfield').value=this.files.name"/>
+        <input type="submit" class="btn" value="上传" />  
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
